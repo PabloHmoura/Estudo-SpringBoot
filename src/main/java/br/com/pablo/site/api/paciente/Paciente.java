@@ -1,4 +1,4 @@
-package br.com.pablo.site.api.medico;
+package br.com.pablo.site.api.paciente;
 
 import br.com.pablo.site.api.endereco.Endereco;
 import jakarta.persistence.*;
@@ -7,33 +7,30 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Table(name = "medicos")
-@Entity(name = "Medico")
 @Getter
+@EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
-public class Medico {
+@Entity(name = "Paciente")
+@Table(name = "pacientes")
+public class Paciente {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
     private String email;
+    private String nome;
+    private String cpf;
     private String telefone;
-    private String crm;
-
-    @Enumerated
-    private Especialidade especialidade;
 
     @Embedded
     private Endereco endereco;
 
-    public Medico(DadosCadastroMedico dados) {
+    public Paciente(DadosCadastroPaciente dados){
         this.nome = dados.nome();
         this.email = dados.email();
+        this.cpf = dados.cpf();
         this.telefone = dados.telefone();
-        this.crm = dados.crm();
-        this.especialidade = dados.especialidade();
         this.endereco = new Endereco(dados.endereco());
     }
 }
