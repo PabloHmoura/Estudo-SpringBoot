@@ -1,6 +1,6 @@
 # Estudo-SpringBoot
 
-Esse projeto foi com o intuito de aprender a usar o framework Spring.
+Esse projeto foi criado com o intuito de aprender a usar o Spring framework.
 
 Esse projeto consta com o uso do JPA, Lombok para geração de códigos, Flyway para desenvolvimento com migration, Driver do MySql para banco de dados e Spring boot.
 
